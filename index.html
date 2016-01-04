@@ -1,11 +1,21 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</head>
-<body>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="pure-menu pure-menu-horizontal" style="max-height: 40px; ">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item"><a href="about.html" class="pure-menu-link">About</a></li>
+        <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+    </ul>
+</div>
 
+<!-- Chart -->
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script>
 $(function () {
@@ -41,20 +51,94 @@ $(function () {
             borderWidth: 0
         },
         series: [{
-            name: 'Commerce',
+            name: 'Agriculture',
             data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
         }, {
-            name: 'VA',
+            name: 'Commerce',
             data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
         }, {
-            name: 'DoE',
+            name: 'Defense',
             data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
         }, {
-            name: 'DoT',
+            name: 'Education',
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        },  {
+            name: 'Energy',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
+        }, {
+            name: 'Health and Human Services',
+            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
+        }, {
+            name: 'Homeland Security',
+            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
+        }, {
+            name: 'Housing and Urban Development',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        },  {
+            name: 'Justice',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
+        }, {
+            name: 'Labor',
+            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
+        }, {
+            name: 'State',
+            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
+        }, {
+            name: 'Interior',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        },  {
+            name: 'Treasury',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
+        }, {
+            name: 'Transportation',
+            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
+        }, {
+            name: 'Veteran Affairs',
+            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
+        }, {
+            name: 'EPA',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        }, {
+            name: 'GSA',
+            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
+        }, {
+            name: 'NASA',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        },  {
+            name: 'NSF',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
+        }, {
+            name: 'NRC',
+            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
+        }, {
+            name: 'OPM',
+            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6]
+        }, {
+            name: 'SBA',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+        },  {
+            name: 'SSA',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
+        }, {
+            name: 'U.S. AID',
+            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8]
         }]
     });
 });
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "/data/broken.csv",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    //console.log(allTextLines);
+}
 </script>
 </body>
 </html>
